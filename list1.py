@@ -29,7 +29,7 @@ def match_ends(words):
     matched_word = 0
     for word in words:
         if len(word) >= 2 and word[0] == word[-1]:
-            matched_word += 1
+            matched_word += 1  # Number of words that match this condition
     return matched_word
 
 
@@ -49,7 +49,6 @@ def front_x(words):
     new_list = sorted(new_words)
     xlist = [c for c in new_list if c.startswith('x')]
     end_list = [c for c in new_list if c not in xlist]
-
     return xlist + end_list
 
 # C. sort_last

@@ -28,7 +28,7 @@ __author__ = "goddesscoder"
 
 
 def remove_adjacent(nums):
-    # your code here
+
     return
 
 
