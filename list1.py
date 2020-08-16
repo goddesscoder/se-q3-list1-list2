@@ -26,11 +26,11 @@ __author__ = "goddesscoder"
 
 
 def match_ends(words):
-
-    words = words
+    matched_word = 0
     for word in words:
-        num_words = len(word)
-    return num_words
+        if len(word) >= 2 and word[0] == word[-1]:
+            matched_word += 1
+    return matched_word
 
 
 # B. front_x
@@ -45,11 +45,11 @@ def match_ends(words):
 
 
 def front_x(words):
-
-    words = words
-    new_list = sorted(words)
+    new_words = words
+    new_list = sorted(new_words)
     xlist = [c for c in new_list if c.startswith('x')]
-    end_list = [c for c in new_list if c != xlist]
+    end_list = [c for c in new_list if c not in xlist]
+
     return xlist + end_list
 
 # C. sort_last
