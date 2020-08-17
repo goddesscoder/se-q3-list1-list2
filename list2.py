@@ -6,6 +6,10 @@ Kenzie assignment: List2
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
 __author__ = "goddesscoder"
+# linear_merge used stackoverflow:
+# Couldnt figure out linear_merge but found it here:
+# https://stackoverflow.com/questions/7237875/linear-merging-for-lists-in-python
+
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -28,8 +32,12 @@ __author__ = "goddesscoder"
 
 
 def remove_adjacent(nums):
-
-    return
+    if nums == []:
+        return nums
+    for num in range(len(nums)-1, 0, -1):
+        if nums[num] == nums[num-1]:
+            del nums[num]
+    return nums
 
 
 # E. zip_merge
@@ -43,8 +51,11 @@ def remove_adjacent(nums):
 
 
 def zip_merge(list1, list2):
-    # your code here
-    return
+    a = list1
+    b = list2
+    zipped = list(zip(a, b))
+    zip_list = [''.join(i) for i in zipped]
+    return zip_list
 
 
 # F. empty_filter
@@ -57,8 +68,9 @@ def zip_merge(list1, list2):
 
 
 def empty_filter(list1):
-    # your code here
-    return
+    a = list1
+    filter_list = list(filter(None, a))
+    return filter_list
 
 
 # G. linear_merge
@@ -73,8 +85,15 @@ def empty_filter(list1):
 
 
 def linear_merge(list1, list2):
-    # your code here
-    return
+    result = []
+    while len(list1) and len(list2):
+        if list1[0] < list2[0]:
+            result.append(list1.pop(0))
+        else:
+            result.append(list2.pop(0))
+    result.extend(list1)
+    result.extend(list2)
+    return result
 
 
 # Provided simple test() function used in main() to print
